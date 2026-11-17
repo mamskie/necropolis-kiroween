@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Necropolis — GeoCities Reborn</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <h1>🪦 Necropolis</h1>
+    <p class="subtitle">GeoCities reborn — build your haunted personal homepage, then export it as one static file.</p>
+  </div>
+  <div class="header-actions">
+    <button id="ambienceBtn" type="button" title="Toggle spooky ambience">👻 Ambience: On</button>
+    <button id="exportBtn" type="button" class="primary">⬇ Export homepage (.html)</button>
+    <button id="copyBtn" type="button">📋 Copy HTML</button>
+    <button id="resetBtn" type="button" class="danger">Reset</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="editor" aria-label="Editor">
+    <h2>Editor</h2>
+
+    <label>Starter persona
+      <select id="templateSelect">
+        <option value="">— custom —</option>
+        <option value="morticia">Morticia — the Mansion Keeper</option>
+        <option value="pumpkin">Pete — the Pumpkin Farmer</option>
+        <option value="crypt">Cora — the Crypt DJ</option>
+      </select>
+    </label>
+
+    <label>Haunted theme
+      <div class="themes" id="themePicker">
+        <button type="button" data-theme="mansion" class="theme-swatch mansion">🏚️ Mansion</button>
+        <button type="button" data-theme="pumpkin" class="theme-swatch pumpkin">🎃 Pumpkin</button>
+        <button type="button" data-theme="crypt" class="theme-swatch crypt">⚰️ Crypt</button>
+        <button type="button" data-theme="carnival" class="theme-swatch carnival">🎪 Carnival</button>
+      </div>
+    </label>
+
+    <label>Your name <input id="ownerInput" type="text" maxlength="60" placeholder="e.g. Morticia"></label>
+    <label>Page title <input id="titleInput" type="text" maxlength="80" placeholder="e.g. Morticia's Haunted Mansion"></label>
+    <label>Tagline <input id="taglineInput" type="text" maxlength="120" placeholder="e.g. Welcome to my corner of the cyberspace!"></label>
+    <label>About you
+      <textarea id="aboutInput" rows="4" maxlength="800" placeholder="Tell the web who you are…"></textarea>
+    </label>
+
+    <div class="medium-box">
+      <h3>🔮 The Medium</h3>
+      <p>Out of words? The Medium writes your page copy in authentic 90s-web voice. No AI, no network — pure template séance.</p>
+      <button id="mediumBtn" type="button">Consult the Medium</button>
+      <button id="mediumAboutBtn" type="button">Write my About</button>
+    </div>
+
+    <h3>Links</h3>
+    <div id="linksList"></div>
+    <div class="link-add">
+      <input id="linkLabel" type="text" placeholder="Label" maxlength="40">
+      <input id="linkUrl" type="text" placeholder="https://…" maxlength="200">
+      <button id="addLinkBtn" type="button">+ Add link</button>
+    </div>
+
+    <h3>Webring</h3>
+    <label>Previous site <input id="ringPrev" type="text" placeholder="https://…"></label>
+    <label>Next site <input id="ringNext" type="text" placeholder="https://…"></label>
+    <p class="hint">Leave blank to link the Necropolis ring hub instead.</p>
+  </section>
+
+  <section class="preview-pane" aria-label="Live preview">
+    <div class="preview-bar">
+      <h2>Live preview</h2>
+      <span id="counterBadge" class="counter-badge">👁 Visitors: 0</span>
+    </div>
+    <iframe id="preview" title="Homepage preview" sandbox="allow-scripts"></iframe>
+    <div class="preview-note">
+      This is your homepage as the world will see it. Sign the guestbook below — it lives in the preview too.
+    </div>
+    <form id="guestbookForm" class="guestbook-form">
+      <h3>✒ Sign the guestbook</h3>
+      <input id="gbName" type="text" placeholder="Your name" maxlength="40" required>
+      <input id="gbMsg" type="text" placeholder="Leave a message for the dead…" maxlength="200" required>
+      <button type="submit">Sign ✒</button>
+    </form>
+    <div id="guestbookList" class="guestbook-list"></div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>Necropolis — built for Kiroween 2026 (Resurrection). No servers, no tracking, no accounts. Your page is yours.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
